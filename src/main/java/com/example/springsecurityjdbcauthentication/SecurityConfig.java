@@ -22,19 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .withDefaultSchema()// here we let spring use it s default users and roles
-                .withUser(
-                       User.withUsername("user")
-                               .password("user")
-                               .roles("USER")
-                )
+                .dataSource(dataSource);
 
-                .withUser(
-                        User.withUsername("admin")
-                                .password("admin")
-                                .roles("ADMIN")
-                );
     }
 
     @Override
